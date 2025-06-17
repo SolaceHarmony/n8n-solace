@@ -1,17 +1,4 @@
-
-name: "Copilot Setup Steps"
-
-# Automatically run the setup steps when they are changed to allow for easy validation, and
-# allow manual testing through the repository's "Actions" tab
-on:
-    workflow_dispatch:
-    push:
-        paths:
-            - .github/workflows/copilot-setup-steps.yml
-    pull_request:
-        paths:
-            - .github/workflows/copilot-setup-steps.yml
-
+name: Copilot Setup and Install
 jobs:
     # The job MUST be called `copilot-setup-steps` or it will not be picked up by Copilot.
     copilot-setup-steps:
@@ -22,44 +9,40 @@ jobs:
         permissions:
             # If you want to clone the repository as part of your setup steps, for example to install dependencies, you'll need the `contents: read` permission. If you don't clone the repository in your setup steps, Copilot will do this for you automatically after the steps complete.
             contents: write
+on:
+    workflow_dispatch:
+    push:
+        paths:
+            - .github/workflows/copilot-setup-steps.yml
+    pull_request:
+        paths:
+            - .github/workflows/copilot-setup-steps.yml
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, master]
+  pull_request:
 
-        # You can define any steps you want, and they will run before the agent starts.
-        # If you do not check out your code, Copilot will do this for you.
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
+jobs:
+  setup:
+    runs-on: ubuntu-latest
 
-            - name: Set up Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: "22.16.0"
-                  cache: "npm"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-            - name: Create .env from .env.example if needed
-              run: |
-                  if [ ! -f ".env" ] && [ -f ".env.example" ]; then
-                    echo "⚙️  Creating .env from .env.example"
-                    cp .env.example .env
-                  fi
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.16'
 
-            - name: Update main project dependencies
-              run: |
-                  echo "📦 Installing npm-check-updates for main project..."
-                  npm install --no-save --no-audit npm-check-updates
-                  echo "🔒 Skipping updates for pinned dependencies (jest and related packages)..."
-                  npx npm-check-updates -u --reject jest,jest-environment-jsdom,jest-simple-dot-reporter,ts-jest,@types/jest
-                  echo "📥 Installing main project dependencies..."
-                  npm install --no-audit
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.12.1
+          run_install: false
 
-            - name: Ensure Jest is available in main project
-              run: |
-                  if ! npx jest --version >/dev/null 2>&1; then
-                    echo "🧪 Jest missing—adding it now..."
-                    npm install --save-dev jest
-                  else
-                    echo "✔️  Jest is available in main project"
-                  fi
+      - name: Install dependencies
+        run: pnpm install
 
 
-            - name: Setup complete
-              run: echo "🎉 All deps are in place—network can go dark now. Happy coding!"
