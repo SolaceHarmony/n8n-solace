@@ -1,14 +1,4 @@
 name: Copilot Setup and Install
-jobs:
-    # The job MUST be called `copilot-setup-steps` or it will not be picked up by Copilot.
-    copilot-setup-steps:
-        runs-on: ubuntu-latest
-
-        # Set the permissions to the lowest permissions possible needed for your steps.
-        # Copilot will be given its own token for its operations.
-        permissions:
-            # If you want to clone the repository as part of your setup steps, for example to install dependencies, you'll need the `contents: read` permission. If you don't clone the repository in your setup steps, Copilot will do this for you automatically after the steps complete.
-            contents: write
 on:
     workflow_dispatch:
     push:
@@ -17,16 +7,12 @@ on:
     pull_request:
         paths:
             - .github/workflows/copilot-setup-steps.yml
-on:
-  workflow_dispatch:
-  push:
-    branches: [main, master]
-  pull_request:
 
 jobs:
-  setup:
+  copilot-setup-steps:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -34,15 +20,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22.16'
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10.12.1
-          run_install: false
+          node-version: '22.x'
 
       - name: Install dependencies
-        run: pnpm install
-
-
+        run: npm ci
