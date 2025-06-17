@@ -1,3 +1,4 @@
+
 name: "Copilot Setup Steps"
 
 # Automatically run the setup steps when they are changed to allow for easy validation, and
@@ -25,21 +26,36 @@ jobs:
         # You can define any steps you want, and they will run before the agent starts.
         # If you do not check out your code, Copilot will do this for you.
         steps:
-            - name: Install package manager
-              run: |
-                  npm install -g pnpm
+            - name: Checkout code
+              uses: actions/checkout@v4
 
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "22.16.0"
+                  cache: "npm"
+
+            - name: Create .env from .env.example if needed
+              run: |
+                  if [ ! -f ".env" ] && [ -f ".env.example" ]; then
+                    echo "⚙️  Creating .env from .env.example"
+                    cp .env.example .env
+                  fi
 
             - name: Update main project dependencies
               run: |
-                  echo "📦 Installing pnpm packages for main project..."
-                  pnpm install
+                  echo "📦 Installing npm-check-updates for main project..."
+                  npm install --no-save --no-audit npm-check-updates
+                  echo "🔒 Skipping updates for pinned dependencies (jest and related packages)..."
+                  npx npm-check-updates -u --reject jest,jest-environment-jsdom,jest-simple-dot-reporter,ts-jest,@types/jest
+                  echo "📥 Installing main project dependencies..."
+                  npm install --no-audit
 
             - name: Ensure Jest is available in main project
               run: |
                   if ! npx jest --version >/dev/null 2>&1; then
                     echo "🧪 Jest missing—adding it now..."
-                    pnpm install jest
+                    npm install --save-dev jest
                   else
                     echo "✔️  Jest is available in main project"
                   fi
