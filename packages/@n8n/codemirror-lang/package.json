@@ -19,7 +19,7 @@
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "generate:expressions:grammar": "lezer-generator --typeScript --output src/expressions/grammar.ts src/expressions/expressions.grammar",
-    "generate": "pnpm generate:expressions:grammar && pnpm format",
+    "generate": "npm run generate:expressions:grammar && npm run format",
     "build": "tsc -p tsconfig.build.json",
     "test": "jest",
     "lint": "eslint . --ext .ts --quiet",
@@ -33,7 +33,7 @@
     "@lezer/lr": "^1.4.0"
   },
   "devDependencies": {
-    "@n8n/typescript-config": "workspace:*",
+    "@n8n/typescript-config": "*",
     "@lezer/generator": "^1.7.0"
   }
 }

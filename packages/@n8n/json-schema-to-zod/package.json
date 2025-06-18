@@ -26,8 +26,8 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:cjs": "tsc -p tsconfig.cjs.json && node postcjs.js",
     "build:esm": "tsc -p tsconfig.esm.json && node postesm.js",
-    "build": "rimraf ./dist && pnpm run build:types && pnpm run build:cjs && pnpm run build:esm",
-    "dry": "pnpm run build && pnpm pub --dry-run",
+    "build": "rimraf ./dist && npm run run build:types && npm run run build:cjs && npm run run build:esm",
+    "dry": "npm run run build && npm run pub --dry-run",
     "test": "jest",
     "test:watch": "jest --watch"
   },
@@ -62,8 +62,8 @@
     "zod": "^3.0.0"
   },
   "devDependencies": {
-    "@n8n/typescript-config": "workspace:*",
+    "@n8n/typescript-config": "*",
     "@types/json-schema": "^7.0.15",
-    "zod": "catalog:"
+    "zod": "3.24.1"
   }
 }

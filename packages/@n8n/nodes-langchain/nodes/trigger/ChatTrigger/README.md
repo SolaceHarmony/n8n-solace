@@ -29,7 +29,7 @@ openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -node
 Navigate to the chat package and build it:
 
 ```bash
-cd packages/frontend/@n8n/chat && pnpm run build 
+cd packages/frontend/@n8n/chat && npm run build 
 ```
 
 ### 4. Start HTTPS Server

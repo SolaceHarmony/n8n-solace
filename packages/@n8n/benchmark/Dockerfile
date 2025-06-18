@@ -16,9 +16,8 @@ RUN apt-get update && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/*
 
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
-RUN npm install -g corepack@0.33 && corepack enable
+# Using npm
+RUN npm install -g npm@latest
 
 #
 # Builder

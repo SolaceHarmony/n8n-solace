@@ -15,7 +15,7 @@
   },
   "scripts": {
     "clean": "rimraf dist .turbo",
-    "dev": "pnpm watch",
+    "dev": "npm run watch",
     "typecheck": "tsc --noEmit",
     "build": "tsc -p tsconfig.build.json",
     "format": "biome format --write .",
@@ -30,32 +30,32 @@
     "dist/**/*"
   ],
   "devDependencies": {
-    "@langchain/core": "catalog:",
-    "@n8n/config": "workspace:*",
-    "@n8n/typescript-config": "workspace:*",
-    "@types/express": "catalog:",
+    "@langchain/core": "0.3.48",
+    "@n8n/config": "*",
+    "@n8n/typescript-config": "*",
+    "@types/express": "^5.0.1",
     "@types/jmespath": "^0.15.0",
-    "@types/lodash": "catalog:",
+    "@types/lodash": "^4.17.17",
     "@types/luxon": "3.2.0",
     "@types/md5": "^2.3.5",
-    "@types/xml2js": "catalog:"
+    "@types/xml2js": "^0.4.14"
   },
   "dependencies": {
     "@n8n/tournament": "1.0.6",
     "ast-types": "0.15.2",
-    "callsites": "catalog:",
+    "callsites": "3.1.0",
     "esprima-next": "5.8.4",
-    "form-data": "catalog:",
+    "form-data": "4.0.0",
     "jmespath": "0.16.0",
-    "js-base64": "catalog:",
+    "js-base64": "3.7.2",
     "jssha": "3.3.1",
-    "lodash": "catalog:",
-    "luxon": "catalog:",
+    "lodash": "4.17.21",
+    "luxon": "3.4.4",
     "md5": "2.3.0",
     "recast": "0.22.0",
     "title-case": "3.0.3",
     "transliteration": "2.3.5",
-    "xml2js": "catalog:",
-    "zod": "catalog:"
+    "xml2js": "0.6.2",
+    "zod": "3.24.1"
   }
 }

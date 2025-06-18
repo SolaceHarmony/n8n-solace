@@ -10,7 +10,7 @@ const biome = path.resolve('node_modules', '.bin', 'biome');
 [prettier, biome].forEach((bin) => {
 	if (!fs.existsSync(bin)) {
 		throw new Error(
-			[`${path.basename(bin)} not found at path: ${bin}`, 'Please run `pnpm i` first'].join('\n'),
+			[`${path.basename(bin)} not found at path: ${bin}`, 'Please run `npm i` first'].join('\n'),
 		);
 	}
 });

@@ -10,7 +10,7 @@
   },
   "scripts": {
     "clean": "rimraf dist .turbo",
-    "dev": "pnpm watch",
+    "dev": "npm run watch",
     "build": "tsc --noEmit",
     "build-node-dev": "tsc",
     "format": "biome format --write .",
@@ -36,17 +36,17 @@
     "src/tsconfig-build.json"
   ],
   "devDependencies": {
-    "@n8n/typescript-config": "workspace:*",
+    "@n8n/typescript-config": "*",
     "@types/inquirer": "^6.5.0"
   },
   "dependencies": {
-    "@n8n/di": "workspace:*",
+    "@n8n/di": "*",
     "@oclif/core": "4.0.7",
     "change-case": "^4.1.1",
-    "fast-glob": "catalog:",
+    "fast-glob": "3.2.12",
     "inquirer": "^7.0.1",
-    "n8n-core": "workspace:*",
-    "n8n-workflow": "workspace:*",
+    "n8n-core": "*",
+    "n8n-workflow": "*",
     "replace-in-file": "^6.0.0",
     "tmp-promise": "^3.0.3"
   }

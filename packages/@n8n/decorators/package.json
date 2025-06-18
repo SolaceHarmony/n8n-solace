@@ -3,7 +3,7 @@
   "version": "0.9.0",
   "scripts": {
     "clean": "rimraf dist .turbo",
-    "dev": "pnpm watch",
+    "dev": "npm run watch",
     "typecheck": "tsc --noEmit",
     "build": "tsc -p tsconfig.build.json",
     "format": "biome format --write .",
@@ -21,15 +21,15 @@
     "dist/**/*"
   ],
   "devDependencies": {
-    "@n8n/typescript-config": "workspace:*",
-    "@types/express": "catalog:",
-    "@types/lodash": "catalog:"
+    "@n8n/typescript-config": "*",
+    "@types/express": "^5.0.1",
+    "@types/lodash": "^4.17.17"
   },
   "dependencies": {
-    "@n8n/constants": "workspace:^",
-    "@n8n/di": "workspace:^",
-    "@n8n/permissions": "workspace:^",
-    "lodash": "catalog:",
-    "n8n-workflow": "workspace:^"
+    "@n8n/constants": "*",
+    "@n8n/di": "*",
+    "@n8n/permissions": "*",
+    "lodash": "4.17.21",
+    "n8n-workflow": "*"
   }
 }

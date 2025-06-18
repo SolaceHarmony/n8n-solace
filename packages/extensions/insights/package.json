@@ -33,24 +33,24 @@
     "typecheck": "vue-tsc --noEmit",
     "build:backend": "tsup",
     "build:frontend": "vite build",
-    "build": "pnpm cleanup && pnpm run \"/^build:.*/\"",
+    "build": "npm run cleanup && npm run run \"/^build:.*/\"",
     "preview": "vite preview"
   },
   "peerDependencies": {
-    "vue": "catalog:frontend",
-    "vue-router": "catalog:frontend"
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
   },
   "dependencies": {
-    "@n8n/extension-sdk": "workspace:*"
+    "@n8n/extension-sdk": "*"
   },
   "devDependencies": {
-    "@n8n/typescript-config": "workspace:*",
-    "@vitejs/plugin-vue": "catalog:frontend",
-    "@vue/tsconfig": "catalog:frontend",
-    "rimraf": "catalog:",
-    "vite": "catalog:frontend",
-    "vue": "catalog:frontend",
-    "vue-router": "catalog:frontend",
-    "vue-tsc": "catalog:frontend"
+    "@n8n/typescript-config": "*",
+    "@vitejs/plugin-vue": "^5.2.4",
+    "@vue/tsconfig": "^0.7.0",
+    "rimraf": "^6.0.1",
+    "vite": "^6.3.5",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0",
+    "vue-tsc": "^2.2.8"
   }
 }

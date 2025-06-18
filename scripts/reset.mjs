@@ -23,8 +23,8 @@ await $({ verbose: false })`git clean -fxd ${excludeFlags}`;
 // In case node_modules is not removed by git clean
 fs.removeSync('node_modules');
 
-echo('⏬ Running pnpm install...');
-await $`pnpm install`;
+echo('⏬ Running npm install...');
+await $`npm install`;
 
-echo('🏗️ Running pnpm build...');
-await $`pnpm build`;
+echo('🏗️ Running npm run build...');
+await $`npm run build`;

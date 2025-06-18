@@ -3,7 +3,7 @@
   "version": "1.43.0",
   "scripts": {
     "clean": "rimraf dist .turbo",
-    "dev": "pnpm watch",
+    "dev": "npm run watch",
     "typecheck": "tsc --noEmit",
     "build": "tsc -p tsconfig.build.json",
     "format": "biome format --write src test",
@@ -21,11 +21,11 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "@n8n/di": "workspace:*",
-    "reflect-metadata": "catalog:",
-    "zod": "catalog:"
+    "@n8n/di": "*",
+    "reflect-metadata": "0.2.2",
+    "zod": "3.24.1"
   },
   "devDependencies": {
-    "@n8n/typescript-config": "workspace:*"
+    "@n8n/typescript-config": "*"
   }
 }

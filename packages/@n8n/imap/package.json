@@ -3,7 +3,7 @@
   "version": "0.10.0",
   "scripts": {
     "clean": "rimraf dist .turbo",
-    "dev": "pnpm watch",
+    "dev": "npm run watch",
     "typecheck": "tsc --noEmit",
     "build": "tsc -p tsconfig.build.json",
     "format": "biome format --write src test",
@@ -20,14 +20,14 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "iconv-lite": "catalog:",
+    "iconv-lite": "0.6.3",
     "imap": "0.8.19",
     "quoted-printable": "1.0.1",
     "utf8": "3.0.0",
     "uuencode": "0.0.4"
   },
   "devDependencies": {
-    "@n8n/typescript-config": "workspace:*",
+    "@n8n/typescript-config": "*",
     "@types/imap": "^0.8.40",
     "@types/quoted-printable": "^1.0.2",
     "@types/utf8": "^3.0.3",

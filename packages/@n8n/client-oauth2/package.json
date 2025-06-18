@@ -3,7 +3,7 @@
   "version": "0.26.0",
   "scripts": {
     "clean": "rimraf dist .turbo",
-    "dev": "pnpm watch",
+    "dev": "npm run watch",
     "typecheck": "tsc --noEmit",
     "build": "tsc -p tsconfig.build.json",
     "format": "biome format --write src test",
@@ -21,9 +21,9 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "axios": "catalog:"
+    "axios": "1.8.3"
   },
   "devDependencies": {
-    "@n8n/typescript-config": "workspace:*"
+    "@n8n/typescript-config": "*"
   }
 }

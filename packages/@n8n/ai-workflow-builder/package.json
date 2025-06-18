@@ -27,17 +27,17 @@
     }
   },
   "dependencies": {
-    "@langchain/anthropic": "catalog:",
-    "@langchain/core": "catalog:",
+    "@langchain/anthropic": "0.3.21",
+    "@langchain/core": "0.3.48",
     "@langchain/langgraph": "0.2.45",
-    "@langchain/openai": "catalog:",
-    "@n8n/config": "workspace:*",
-    "@n8n/di": "workspace:*",
-    "@n8n_io/ai-assistant-sdk": "catalog:",
-    "n8n-workflow": "workspace:*",
-    "zod": "catalog:"
+    "@langchain/openai": "0.5.0",
+    "@n8n/config": "*",
+    "@n8n/di": "*",
+    "@n8n_io/ai-assistant-sdk": "1.14.0",
+    "n8n-workflow": "*",
+    "zod": "3.24.1"
   },
   "devDependencies": {
-    "@n8n/typescript-config": "workspace:*"
+    "@n8n/typescript-config": "*"
   }
 }
