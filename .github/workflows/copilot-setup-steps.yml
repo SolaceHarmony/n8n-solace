@@ -22,6 +22,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22.x'
+          always-auth: false
+          check-latest: false
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
@@ -29,19 +32,12 @@ jobs:
           version: 10.12.1
           run_install: false
 
-      - name: Setup pnpm cache
-        uses: actions/cache@v3
-        with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: Show environment info
+      - name: Show environment details
         run: |
           node --version
+          npm --version
+          yarn --version
           pnpm --version
-          echo "Node and pnpm version check complete"
           
       - name: Install dependencies
         run: pnpm install
