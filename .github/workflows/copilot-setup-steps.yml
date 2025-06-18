@@ -18,22 +18,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22.x'
-          always-auth: false
-          check-latest: false
-          token: ${{ secrets.GITHUB_TOKEN }}
-          
-      - name: Disable npm auto-install
-        run: |
-          echo "Disabling potential automatic npm installations"
-          # This prevents npm from trying to auto-install packages
-          npm config set ignore-scripts true 
-          # This disables the workspace feature which could trigger npm to parse workspace: references
-          npm config set workspaces false
-
       - name: Install pnpm
         run: |
           echo "Installing pnpm using curl..."
