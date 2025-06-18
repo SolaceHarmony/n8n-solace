@@ -25,6 +25,14 @@ jobs:
           always-auth: false
           check-latest: false
           token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Disable npm auto-install
+        run: |
+          echo "Disabling potential automatic npm installations"
+          # This prevents npm from trying to auto-install packages
+          npm config set ignore-scripts true 
+          # This disables the workspace feature which could trigger npm to parse workspace: references
+          npm config set workspaces false
 
       - name: Install pnpm
         run: |
@@ -52,7 +60,11 @@ jobs:
           pnpm --version
           
       - name: Install dependencies
-        run: pnpm install
+        run: |
+          # Make sure we're using pnpm and not npm
+          echo "Using $(which pnpm) to install dependencies"
+          # Force using pnpm by using the full path
+          $PNPM_HOME/pnpm install
         
       - name: Verify installation
         run: |
