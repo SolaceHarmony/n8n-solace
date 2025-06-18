@@ -26,11 +26,23 @@ jobs:
           check-latest: false
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 10.12.1
-          run_install: false
+      - name: Install pnpm
+        run: |
+          echo "Installing pnpm using curl..."
+          curl -fsSL https://get.pnpm.io/install.sh | sh -
+          export PNPM_HOME="$HOME/.local/share/pnpm"
+          export PATH="$PNPM_HOME:$PATH"
+          mkdir -p $PNPM_HOME
+          echo "PNPM_HOME=$PNPM_HOME" >> $GITHUB_ENV
+          echo "$PNPM_HOME" >> $GITHUB_PATH
+          pnpm --version
+
+      - name: Configure pnpm
+        run: |
+          echo "Setting up pnpm configuration..."
+          pnpm config set store-dir ~/.pnpm-store
+          pnpm config set network-concurrency 8
+          pnpm config list
 
       - name: Show environment details
         run: |
