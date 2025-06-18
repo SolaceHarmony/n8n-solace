@@ -1,12 +1,12 @@
 name: Copilot Setup and Install
 on:
-  workflow_dispatch:
-  push:
-    paths:
-      - .github/workflows/copilot-setup-steps.yml
-  pull_request:
-    paths:
-      - .github/workflows/copilot-setup-steps.yml
+    workflow_dispatch:
+    push:
+        paths:
+            - .github/workflows/copilot-setup-steps.yml
+    pull_request:
+        paths:
+            - .github/workflows/copilot-setup-steps.yml
 
 jobs:
   copilot-setup-steps:
@@ -22,9 +22,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22.x'
+          cache: 'npm'
+          cache-dependency-path: 'package.json'
 
-      - name: Update npm to latest version
-        run: npm install -g npm@22
+      - name: Configure npm workspaces
+        run: npm config set workspaces true
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install && npm ci
