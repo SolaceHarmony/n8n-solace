@@ -12,7 +12,7 @@
   "scripts": {
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
-    "build": "tsc --skipLibCheck -p tsconfig.build.json && tsc-alias -p tsconfig.build.json || echo 'Ignoring TypeScript errors in core package'",
+    "build": "tsc --skipLibCheck -p tsconfig.build.json && tsc-alias -p tsconfig.build.json -r tsconfig.build.json || echo 'Ignoring TypeScript errors in core package'",
     "dev": "npm run watch",
     "format": "biome format --write .",
     "format:check": "biome ci .",

@@ -17,7 +17,7 @@ import {
 	WorkflowDeactivationError,
 } from 'n8n-workflow';
 
-import { ErrorReporter } from '@/errors/error-reporter';
+import { ErrorReporter } from '../errors/error-reporter';
 import type { IWorkflowData } from '@/interfaces';
 
 import type { IGetExecutePollFunctions, IGetExecuteTriggerFunctions } from './interfaces';

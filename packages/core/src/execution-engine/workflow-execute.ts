@@ -58,8 +58,8 @@ import {
 } from 'n8n-workflow';
 import PCancelable from 'p-cancelable';
 
-import { ErrorReporter } from '@/errors/error-reporter';
-import { WorkflowHasIssuesError } from '@/errors/workflow-has-issues.error';
+import { ErrorReporter } from '../errors/error-reporter';
+import { WorkflowHasIssuesError } from '../errors/workflow-has-issues.error';
 import * as NodeExecuteFunctions from '@/node-execute-functions';
 
 import { ExecuteContext, PollContext } from './node-execution-context';

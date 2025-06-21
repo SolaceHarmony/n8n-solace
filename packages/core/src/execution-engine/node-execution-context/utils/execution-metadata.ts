@@ -1,7 +1,7 @@
 import type { IRunExecutionData } from 'n8n-workflow';
 import { LoggerProxy as Logger } from 'n8n-workflow';
 
-import { InvalidExecutionMetadataError } from '@/errors/invalid-execution-metadata.error';
+import { InvalidExecutionMetadataError } from '../../../errors/invalid-execution-metadata.error';
 
 export const KV_LIMIT = 10;
 

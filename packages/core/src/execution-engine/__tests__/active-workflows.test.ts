@@ -11,7 +11,7 @@ import type {
 } from 'n8n-workflow';
 import { LoggerProxy, TriggerCloseError, WorkflowActivationError } from 'n8n-workflow';
 
-import type { ErrorReporter } from '@/errors/error-reporter';
+import type { ErrorReporter } from '../../errors/error-reporter';
 
 import { ActiveWorkflows } from '../active-workflows';
 import type { IGetExecuteTriggerFunctions } from '../interfaces';
