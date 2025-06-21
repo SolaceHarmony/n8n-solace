@@ -19,7 +19,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "npm run run typecheck && tsup",
+    "build": "npm run typecheck && tsup",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",

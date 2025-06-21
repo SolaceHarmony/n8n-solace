@@ -105,7 +105,7 @@ export class Logger implements LoggerType {
 	private log(level: LogLevel, message: string, metadata: LogMetadata) {
 		const location: LogLocationMetadata = {};
 
-		const caller = callsites().at(2); // zeroth and first are this file, second is caller
+		const caller = callsites()[2]; // zeroth and first are this file, second is caller
 
 		if (caller !== undefined) {
 			location.file = basename(caller.getFileName() ?? '');
@@ -152,7 +152,7 @@ export class Logger implements LoggerType {
 		} else if (this.level === 'debug' && inProduction) {
 			return this.debugProdConsoleFormat();
 		} else {
-			return winston.format.printf(({ message }: { message: string }) => message);
+			return winston.format.printf((info: any) => info.message as string);
 		}
 	}
 

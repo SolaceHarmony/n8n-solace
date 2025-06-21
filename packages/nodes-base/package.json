@@ -8,14 +8,17 @@
     "copy-nodes-json": "node scripts/copy-nodes-json.js .",
     "dev": "npm run watch",
     "typecheck": "tsc --noEmit",
-    "build": "tsup --tsconfig tsconfig.build.json && npm run copy-nodes-json && tsc-alias -p tsconfig.build.json && npm run n8n-copy-static-files && npm run n8n-generate-translations && npm run n8n-generate-metadata",
+    "build": "tsup --tsconfig tsconfig.build.json && npm run copy-nodes-json && tsc-alias -p tsconfig.build.json && npm run n8n-copy-static-files && npm run n8n-generate-translations",
     "format": "biome format --write .",
     "format:check": "biome ci .",
     "lint": "eslint nodes credentials utils test --quiet && node ./scripts/validate-load-options-methods.js",
     "lintfix": "eslint nodes credentials utils test --fix",
-    "watch": "tsup --watch --tsconfig tsconfig.build.json --onSuccess \"npm run copy-nodes-json && tsc-alias -p tsconfig.build.json && npm run n8n-generate-metadata\"",
+    "watch": "tsup --watch --tsconfig tsconfig.build.json --onSuccess \"npm run copy-nodes-json && tsc-alias -p tsconfig.build.json\"",
     "test": "jest",
-    "test:dev": "jest --watch"
+    "test:dev": "jest --watch",
+    "n8n-copy-static-files": "node ../core/bin/copy-static-files",
+    "n8n-generate-translations": "node ../core/bin/generate-translations",
+    "n8n-generate-metadata": "node ../core/bin/generate-metadata"
   },
   "files": [
     "dist"

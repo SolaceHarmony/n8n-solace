@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist .turbo",
-    "dev": "npm run run watch",
+    "dev": "npm run watch",
     "typecheck": "tsc --noEmit",
     "copy-nodes-json": "node ../../nodes-base/scripts/copy-nodes-json.js .",
     "build": "tsup --tsconfig tsconfig.build.json && npm run copy-nodes-json && tsc-alias -p tsconfig.build.json && npm run n8n-copy-static-files && npm run n8n-generate-metadata",

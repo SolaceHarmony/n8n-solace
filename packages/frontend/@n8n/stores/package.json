@@ -22,7 +22,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "npm run run typecheck && tsup",
+    "build": "npm run typecheck && tsup",
     "preview": "vite preview",
     "typecheck": "vue-tsc --noEmit",
     "test": "vitest run",

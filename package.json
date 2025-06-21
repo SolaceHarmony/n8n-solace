@@ -2,6 +2,7 @@
   "name": "n8n-monorepo",
   "version": "1.99.0",
   "private": true,
+  "packageManager": "npm@10.9.2",
   "engines": {
     "node": ">=22.0.0"
   },
@@ -77,5 +78,8 @@
     "turbo": "2.5.4",
     "typescript": "*",
     "zx": "^8.1.4"
+  },
+  "dependencies": {
+    "@sentry/types": "^9.30.0"
   }
 }

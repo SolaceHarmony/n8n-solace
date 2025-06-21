@@ -34,7 +34,8 @@
     "dev": "tsup --watch",
     "typecheck:frontend": "vue-tsc --noEmit --project tsconfig.frontend.json",
     "typecheck:backend": "tsc --noEmit --project tsconfig.backend.json",
-    "build": "npm run \"/^typecheck:.+/\" && npm run clean && tsup && npm run create-json-schema",
+    "typecheck": "npm run typecheck:frontend && npm run typecheck:backend",
+    "build": "npm run typecheck && npm run clean && tsup && npm run create-json-schema",
     "create-json-schema": "tsx scripts/create-json-schema.ts",
     "preview": "vite preview"
   },

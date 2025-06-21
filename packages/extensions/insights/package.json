@@ -33,7 +33,7 @@
     "typecheck": "vue-tsc --noEmit",
     "build:backend": "tsup",
     "build:frontend": "vite build",
-    "build": "npm run cleanup && npm run run \"/^build:.*/\"",
+    "build": "npm run cleanup && npm run build:backend && npm run build:frontend",
     "preview": "vite preview"
   },
   "peerDependencies": {

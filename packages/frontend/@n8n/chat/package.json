@@ -2,7 +2,7 @@
   "name": "@n8n/chat",
   "version": "0.44.0",
   "scripts": {
-    "dev": "npm run run storybook",
+    "dev": "npm run storybook",
     "build": "npm run build:vite && npm run build:bundle",
     "build:vite": "cross-env vite build",
     "build:bundle": "cross-env INCLUDE_VUE=true vite build",
